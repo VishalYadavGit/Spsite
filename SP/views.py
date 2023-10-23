@@ -8,3 +8,6 @@ def products(request):
     categorys=Machine_category.objects.all
     context={"categorys":categorys}
     return render(request,'products.html',context)
+
+def about(request):
+    return render(request,'about.html')
