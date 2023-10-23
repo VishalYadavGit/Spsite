@@ -1,1 +1,41 @@
 {% extends "base.html" %}
+{% block style %}
+<style>
+    .productsbody{
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     padding: 20px;
+     justify-content: center;   
+     align-items: center;
+        }
+    .categorybox{
+        width: 95%;
+        background-color: rgba(0, 0, 0, 0.534);
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    .imgdiv{
+        width: 100%;
+    }
+    .detailsdiv{
+        width: 100%;
+        color: white;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+    <div class="productsbody">
+        {% for category in categorys %}
+        <div class="categorybox">
+            <img class="imgdiv" src="/media/{{category.Category_img}}" alt="">
+            <div class="detailsdiv">
+                <div class="ddn">
+                    {{category.Category_name}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock body %}

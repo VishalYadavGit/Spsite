@@ -8,24 +8,114 @@
    {% block style %}
     {% endblock style %}
     <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
         .navbar{
-            background-color: red;
+            background-color: white;
             color: white;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+            z-index: 1;
         }
         .navli{
             margin: 0px 15px;
         }
         .litext{
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: white;
+            color: #004aad;
             font-weight: 500;
         }
+            /* width */
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        background: #ffffff;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #004aad;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #004aad;
+        }
+        .gstin{
+          height: 30px;
+          padding-left: 10px;
+          background-color: bisque;
+          border-bottom: 1px solid black;
+        }
+        .footer{
+          height: 60%;
+          background-color: #00377f;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+        }
+        .upperfooter{
+          height: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+        .lowerfooter{
+          height: 10px;
+          text-align: center;
+          color: white;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          font-weight: 500;
+          margin: auto;
+        }
+        .footerright{
+          font-weight: 500;
+          width: 50%;
+          display: flex;
+          padding-top: 100px;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+          line-height: 20px;
+        }
+        .footerleft{
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          width: 33%;
+          display: flex;
+          padding-left: 5%;
+          line-height: 40px;
+          /* justify-content: center; */
+          flex-direction: column;
+          /* align-items: center; */
+
+        }
+        .midfooter{
+          width: 17%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+        .mainbody{
+            min-height: 100%;
+            background-color: #004aad;
+            
+        }
+
     </style>
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar">
-        <div class="container-fluid">
+  <div class="gstin">GSTIN- 27AAYFS3769E1ZG / 27AAYFS3769E1ZG</div>
+  <nav class="navbar navbar-expand-lg navbar">
+    <div class="container-fluid">
           <a class="navbar-brand" href="/"><img src="static/Spec_rec.png" style="width: 120px;" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,7 +129,7 @@
                 <a class="nav-link litext" href="#">About us</a>
               </li>
               <li class="nav-item dropdown navli">
-                <a class="nav-link litext" href="#">Products</a>
+                <a class="nav-link litext" href="products">Products</a>
               </li>
               <li class="nav-item navli">
                 <a class="nav-link litext" href="#">Contact Us</a>
@@ -48,9 +138,57 @@
           </div>
         </div>
       </nav>
+      <div class="mainbody">
       {% block body %}
 
       {% endblock body %}
+    </div>
+      <div class="footer">
+        <div class="upperfooter">
+          <div class="footerleft">
+            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="">Home</a></li>
+            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="">About</a></li>
+            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="">Projects</a></li>
+            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="">Contact us</a></li>
+          </div>
+          <div class="midfooter">
+            <a href="" style="margin-bottom: 10px;"><img width="30px" src="static/fb.png" alt=""></a>
+            <a href="" style="margin-bottom: 10px;"><img width="30px"  src="static/instagram.png" alt=""></a>
+            <a href="" style="margin-bottom: 10px;"><img width="30px"  src="static/twitter.png" alt=""></a>
+            <a href="" style="margin-bottom: 10px;"><img width="30px"  src="static/whatsapp.png" alt=""></a>
+          </div>
+          <div class="footerright">
+            <div class="frl"> 
+              <pre style="font-size: smaller;">
+ Shyamnath Yadav
+ +919820270855
+ Balmukund Yadav
+ +919821827627
+ SP Engineering co.
+ Gala No. 25/26,
+ Jai matadi estate,
+ near fatak road,
+ Bhayander east,
+ Thane-401105,
+ Maharashtra,India.
+ spindustries@yahoo.com
+                </pre>
+                </div>
+          </div>
+        </div>
+        <div class="lowerfooter">&copy;2023 SP Engineering. All right reserved.</div>
+      </div>
+    <script>
+      function chatbox(){
+        const box=document.querySelector('#chatbox')
+        if (box.style.display=="block"){
+          box.style="display:none;"
+        }
+        else{
+          box.style="display:block;"
+        }
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>

@@ -1,2 +1,150 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock title %}
+{% block style %}
+    <style>
+        .mainbody{
+            min-height: 100%;
+            background-color: #004aad;
+            
+        }
+        .frontbody{
+            height: 50%;
+            background-color: #004aad;
+            width: 100%;
+            min-height:auto;
+            overflow: hidden;
+        }
+        .fastconnect{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        .middlebody{
+            height: 50%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            padding: 30px;
+            font-size: larger;
+            line-height: 40px;
+            text-align: center;
+        }
+        .chatbox{
+            width: 30%;
+            display: none;
+            background-color: white;
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            height: 50%;
+            min-width: 300px;
+            z-index: 10;
+            border-radius: 15px;
+            overflow: hidden;
+
+        }
+        .chatchild{
+            height: 100%;
+            width: 100%;
+            background-color: #4c74a8;
+            text-align: center;
+            border-radius: 15px;
+
+        }
+        .all{
+            margin-bottom: 1%;
+        }
+        .inputss{
+            border-radius: 5px;
+        }
+        .specialtxt{
+            height: 60px;
+        }
+    </style>
+{% endblock style %}
+{% block body %}
+
+    <div class="frontbody">
+        <div id="carouselExampleInterval" style="display: block; z-index: 0;" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="2000">
+                <img src="https://source.unsplash.com/1200x500/?machine" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="https://source.unsplash.com/1200x500/?Hydraulic" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="https://source.unsplash.com/1200x500/?paint" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>       
+    </div>
+    <img style="width: 100%;height: 80px;" src="static/border.png" alt="">
+    <div class="middlebody">
+        <h3>Introduction</h3>
+        <p>
+            Nestled in the vibrant locale of Mira Bhayandar, Maharashtra, India, we proudly present <span style="color: red;">S. P. Engineering Co.</span> as a distinguished and renowned entity. With our multifaceted presence, we have firmly established ourselves as a distinguished Manufacturer, Supplier, Exporter, and Service Provider.<br> Our extensive product portfolio boasts a wide spectrum of offerings, including the Sigma Mixer Machine, High Speed Stirrer, High Precision Mills, Attritor Mill, Obd Pug Mixer, Batch Type Sand Mill, Bottle Filling Machine, Regular Sand Mill Model, Paint Machinery, Hydraulic Press Machinery, Chemicals Plant Equipment, and an array of other high-quality products.<br>
+
+At the core of our offerings lies the artistry of our expert engineers and technicians, who have meticulously crafted this product range by employing superior materials and components. Our commitment extends beyond just delivering exceptional products; we also take pride in offering professional repair and maintenance services, all accomplished within stipulated time frames.</p>
+    </div>
+    <img style="width: 100%;height: 80px;" src="static/border.png" alt="">
+    <div class="middlebody">
+        <h3>Why Choose Us?</h3>
+        <p>1. Unmatched Expertise: With a team of seasoned engineers and technicians, we bring unparalleled expertise to the table. Our professionals have honed their skills to perfection, ensuring the highest quality products and services.<br>
+
+            2. Quality Assurance: We prioritize the use of top-tier materials and components in every product we manufacture. Quality is not just a buzzword for us; it's an integral part of our commitment to you.<br>
+            
+            3. Wide Range of Products: Our extensive product catalog is a testament to our versatility. Whether you're in need of industrial mixers, precision mills, or machinery for chemical plants, we have you covered. Our diverse offerings make us a one-stop solution for various requirements.<br>
+            
+            4. Export Capabilities: As an exporter, we understand the importance of delivering products that meet international standards. We are well-versed in global regulations and standards, ensuring that our products are export-ready.<br>
+            
+            5. Prompt Repairs and Maintenance: Our dedication doesn't end with the sale. We offer comprehensive repair and maintenance services, executed by professionals, to keep your equipment running smoothly and efficiently.<br>
+            
+            6. Timely Delivery: We take pride in our commitment to punctuality. We understand the value of your time and ensure that our products and services are delivered within agreed-upon time frames.<br>
+            
+            7. Customer-Centric Approach: Your satisfaction is our utmost priority. We strive to understand your unique needs and tailor our solutions accordingly. Your success is our success.<br>
+            
+            8. Global Recognition: With our reputation for quality and reliability, we have earned recognition not only in our local market but also on the global stage. Choosing us means partnering with a company that has a proven track record.<br>
+            
+            In conclusion, when you choose S. P. Engineering Co., you're selecting a company that blends expertise, quality, and commitment to provide you with exceptional products and services. We are your trusted partner in the world of manufacturing and engineering.<br></p>
+    </div>
+    <div class="chatbox" id="chatbox">
+        <div class="chatchild">
+        <form class="form" action="/contact" method='post' >
+            {% csrf_token %}
+            <div class="all">
+            <h2 class="heading mr-2 ">Connect with us!</h2>
+            
+                <label class="labels" for="name_surname">Enter Your Name<span style="color: red;">*</span></label><br>
+                <input class="inputss all" type="text" name='name_surname'  required="required" placeholder="Your Name"><br>
+                <label class="labels" for="email">Enter Your Email<span style="color: red;">*</span></label><br>
+                <input required="required" class="inputss all" type="email" name='email' placeholder="abc@email.com"><br>
+                <label class="labels" for="phone">Enter Your Phone number<span style="color: red;">*</span></label><br>
+                <input required="required" class="inputss all" type="text" name='phone' placeholder="Phone number"><br>
+                <label class="labels" for="text">Enter Your Message<span style="color: red;">*</span></label><br>
+                <input required="required" class="specialtxt all" type="text" name='message' placeholder="Your message" style="margin-bottom: 2%;">
+            </div>
+            <button class="submitwala">Submit</button>
+            
+            
+        </form>
+        </div>
+    </div>
+    <button class="fastconnect"  onclick="chatbox()" ><img src="static/fastconnect.png" alt="" width="50px"></button>
+{% endblock body %}
