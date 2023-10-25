@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    .error{
+        text-align: center;
+        padding-top: 20%;
+    }
+    .chotaerror{
+        color: white;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+<div class="error">
+    <div class="chotaerror">
+        <h1 style="margin:auto;">404-PAGE NOT FOUND</h1>
+        <h3>Return <a href="/">home</a></h3>
+    </div>
+</div>
+{% endblock body %}
