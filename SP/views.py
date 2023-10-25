@@ -1,7 +1,15 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import user_passes_test
 from .models import *
 
-# Create your views here.
+
+def is_admin(user):
+    return user.is_authenticated and user.is_staff
+
+
+def not_found(request,exception):
+    return render(request,'404.html')
+
 def index(request):
     return render(request,'index.html')
 def products(request):
@@ -14,3 +22,7 @@ def about(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+@user_passes_test(is_admin)
+def adminpanel(request):
+    return render(request,'products.html')
