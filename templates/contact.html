@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block style %}{% endblock style %}
 {% block body %}
-
+<form class="form" action="/contact" method='post' >
+    {% csrf_token %}
+    <div class="all">
+    <h2 class="heading mr-2 ">Connect with us!</h2>
+    
+        <label class="labels" for="name_surname">Enter Your Name<span style="color: red;">*</span></label><br>
+        <input class="inputss all" type="text" name='name_surname'  required="required" placeholder="Your Name"><br>
+        <label class="labels" for="email">Enter Your Email<span style="color: red;">*</span></label><br>
+        <input required="required" class="inputss all" type="email" name='email' placeholder="abc@email.com"><br>
+        <label class="labels" for="phone">Enter Your Phone number<span style="color: red;">*</span></label><br>
+        <input required="required" class="inputss all" type="text" name='phone' placeholder="Phone number"><br>
+        <label class="labels" for="text">Enter Your Message<span style="color: red;">*</span></label><br>
+        <input required="required" class="specialtxt all" type="text" name='message' placeholder="Your message" style="margin-bottom: 2%;">
+    </div>
+    <button class="submitwala">Submit</button>
+    
+    
+</form>
 
 {% endblock body %}

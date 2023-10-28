@@ -25,4 +25,12 @@ def contact(request):
 
 @user_passes_test(is_admin)
 def adminpanel(request):
-    return render(request,'products.html')
+    return render(request,'admin.html')
+
+@user_passes_test(is_admin)
+def quotation(request):
+    return render(request,'quotation.html')
+
+@user_passes_test(is_admin)
+def performa(request):
+    return render(request,'performa.html')

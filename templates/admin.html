@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    .adminbox{
+        height:100%;
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+        padding: 20px;
+    }
+    .funcbox{
+        text-align: center;
+    }
+    
+</style>
+
+{% endblock style %}
+{% block body %}
+<h3 style="background-color:yellow;color: black; text-align: center;" id="annouce"></h3>
+<div class="adminbox">
+    <a href="quotation" style="text-decoration: none;color: white;">
+        <div class="funcbox">
+            <img src="static/quotation.png" width="200px" alt="">
+            <h4>Quotation</h4>
+        </div>
+    </a>
+    <a href="performa" style="text-decoration: none;color: white;">
+        <div class="funcbox">
+            <img src="static/quotation.png" width="200px" alt="">
+            <h4>Performa Invoice</h4>
+        </div>
+    </a>
+    <a id="comingsoon" style="text-decoration: none;color: white;">
+        <div class="funcbox">
+            <img src="static/quotation.png" width="200px" alt="">
+            <h4>Coming soon..</h4>
+        </div>
+    </a>
+</div>
+<script>
+    var csdiv=document.getElementById("comingsoon");
+    csdiv.addEventListener('click',()=>{
+        var annoucediv=document.getElementById("annouce");
+       annoucediv.innerHTML="This Feature will be Available Soon.."
+    })
+
+    // function comingsoon(){
+        
+    //    var annoucediv=document.getElementById("annouce");
+    //    annoucediv.innerHTML="This Feature will be Avaible Soon.."
+
+    // }
+</script>
+{% endblock body %}
