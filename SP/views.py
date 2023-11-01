@@ -33,9 +33,13 @@ def contact(request):
             message=message
         )
         mail=f'''
-        {email}
-        {phone}
-        {message}
+        {name} 
+        with
+        {email} 
+        and
+        {phone} 
+        sent 
+        "{message}"
         '''
         send_mail(name,mail,'',['vystudent68@gmail.com'])
         return HttpResponseRedirect(request.path_info)

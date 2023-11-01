@@ -156,11 +156,6 @@
             <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="about">About</a></li>
             <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="products">Products</a></li>
             <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="contact">Contact us</a></li>
-            {% if user.is_authenticated and user.is_staff %}
-                <li class="nav-item navli">
-                  <a class="nav-link litext" href="admin">Admin Panel</a>
-                </li>
-              {% endif %}
           </div>
           <div class="midfooter">
             <a href="" style="margin-bottom: 10px;"><img width="30px" src="https://i.ibb.co/XCbgdBw/fb.png" alt=""></a>
