@@ -185,6 +185,10 @@
         <div class="lowerfooter">&copy;2023 SP Engineering. All right reserved.</div>
       </div>
     <script>
+      const currentDate = new Date().toISOString().slice(0, 10);
+      document.getElementById("date").value=currentDate;
+      console.log(currentDate);
+      
       function chatbox(){
         const box=document.querySelector('#chatbox')
         if (box.style.display=="block"){
