@@ -52,7 +52,9 @@ def adminpanel(request):
 
 @user_passes_test(is_admin)
 def quotation(request):
-    return render(request,'quotation.html')
+    categorys=Machine_category.objects.all
+    context={"categorys":categorys}
+    return render(request,'quotation.html',context)
 
 @user_passes_test(is_admin)
 def performa(request):
