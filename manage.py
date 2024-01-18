@@ -7,6 +7,7 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'companySite.settings')
+    os.environ.setdefault('DATABASE_URL', 'postgres://default:WYnvND19PyfV@ep-odd-pond-72122185.us-east-1.postgres.vercel-storage.com:5432/verceldb')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
