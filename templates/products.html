@@ -1,43 +1,85 @@
 {% extends "base.html" %}
 {% block style %}
 <style>
-    .productsbody{
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-     padding: 20px;
-     max-width: 800px;
-        
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-        }
-    .categorybox{
-        width: 95%;
-        height:200px
-        background-color: rgba(0, 0, 0, 0.534);
-        overflow: hidden;
-        margin-bottom: 20px;
+    .productsbody {
+      display: flex;
+      justify-content: center; /* Center the grid */
+      margin: 0 auto;
     }
-    .imgdiv{
-        width: 100%;
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+      max-width: 1200px; /* Limit the width of the grid */
+      width: 100%; /* Ensure it doesn't overflow */
     }
-    .detailsdiv{
-        width: 100%;
-        color: white;
+    
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+    
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px 8px 0 0;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .detailsdiv h3 {
+      font-size: 16px;
+      color: #333;
+      margin: 10px 0;
+    }
+    
+    .product-card .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 25px;
+        transition: background-color 0.3s ease;
+      }
+      .product-card .btn:hover {
+        background-color: #0056b3;
+      }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
 </style>
 {% endblock style %}
 {% block body %}
-    <div class="productsbody">
-        {% for category in categorys %}
-        <div class="categorybox">
-            <img class="imgdiv" src="/media/{{category.Category_img}}" alt="">
-            <div class="detailsdiv">
-                <div class="ddn">
-                    {{category.Category_name}}
-                </div>
-            </div>
+<div class="productsbody">
+    <div class="product-grid">
+      {% for category in categorys %}
+      <div class="product-card">
+        <img class="imgdiv" src="https://picsum.photos/500/500" alt="{{category.Category_name}}">
+        <div class="detailsdiv">
+          <h3>{{ category.Category_name }}</h3>
         </div>
-        {% endfor %}
+        <button class="btn">Get a Quote</button>
+      </div>
+      {% endfor %}
     </div>
+  </div>
+  
 
 
 {% endblock body %}

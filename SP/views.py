@@ -11,7 +11,19 @@ def not_found(request,exception):
     return render(request,'404.html')
 
 def index(request):
+    ip = get_client_ip(request)
+    print(ip)
     return render(request,'index.html')
+
+def get_client_ip(request):
+    """Extract the real client IP, considering Ngrok"""
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]  # First IP in the list
+    else:
+        ip = request.META.get('REMOTE_ADDR')  # Fallback if no proxy
+    return ip
+
 def products(request):
     categorys=Machine_category.objects.all
     context={"categorys":categorys}

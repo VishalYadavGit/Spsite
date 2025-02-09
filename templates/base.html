@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="https://i.ibb.co/G0WZnG0/Spec-rec.png" type="image/x-icon">
    {% block style %}
     {% endblock style %}
@@ -13,10 +14,8 @@
             width: 100%;
         }
         .navbar{
-            background-color: white;
-            color: white;
-            position: sticky;
-            top: 0;
+            background-color: #014F86;
+            color: #333333;
             box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
             z-index: 1;
         }
@@ -25,9 +24,10 @@
         }
         .litext{
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #004aad;
+            color: #FFFFFF;
             font-weight: 500;
         }
+        
             /* width */
         ::-webkit-scrollbar {
         width: 10px;
@@ -40,84 +40,132 @@
 
         /* Handle */
         ::-webkit-scrollbar-thumb {
-        background: #004aad;
+        background: #0071bd;
         }
 
         /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
-        background: #004aad;
+        background: #0071bd;
         }
         .gstin{
           height: 30px;
           padding-left: 10px;
-          background-color: bisque;
+          background-color: #F5FAFF;
           border-bottom: 1px solid black;
         }
-        .footer{
-          height: 60%;
-          background-color: #00377f;
-          display: flex;
-          flex-direction: column;
-          padding: 10px;
-        }
-        .upperfooter{
-          height: 90%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-        }
-        .lowerfooter{
-          height: 10px;
-          text-align: center;
-          color: white;
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-weight: 500;
-          margin: auto;
-        }
-        .footerright{
-          font-weight: 500;
-          width: 50%;
-          display: flex;
-          padding-top: 100px;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-          line-height: 20px;
-        }
-        .footerleft{
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          width: 33%;
-          display: flex;
-          padding-left: 5%;
-          line-height: 40px;
-          /* justify-content: center; */
-          flex-direction: column;
-          /* align-items: center; */
+        .footer {
+  background-color: #003F5C;
+  color: #fff;
+  padding: 2rem 1rem;
+}
 
-        }
-        .midfooter{
-          width: 17%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-        }
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #00A884; /* Highlight color */
+}
+
+.follow-us .social-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.follow-us .social-icons a img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: #00A884;
+  text-decoration: none;
+}
+
+.footer-bottom .payment-icons img {
+  width: 40px;
+  margin-left: 0.5rem;
+}
+
         .mainbody{
             min-height:85vh;
-            background-color: #004aad;
+            background-color: #F5FAFF ;
+            background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');
             
         }
+        .logo-container {
+        background-color: #FFFFFF; /* White background */
+        padding: 5px 10px; /* Add padding for spacing */
+        border-radius: 8px; /* Smooth corners */
+        }
+        .social-icons {
+  display: flex;
+  gap: 15px; /* Space between icons */
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: white; /* Default icon color */
+  font-size: 24px; /* Adjust icon size */
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007BFF; /* Icon color on hover */
+}
 
     </style>
     
 </head>
 <body>
-  <div class="gstin">GSTIN- 27AAYFS3769E1ZG / 27AAYFS3769E1ZG</div>
-  <nav class="navbar navbar-expand-lg navbar">
+  <div class="gstin m-0">
+    <marquee direction="right" class="d-flex justify-between w-100">
+      <img width="100" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+      <img width="100" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+      <img width="100" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+      <img width="100" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+    </marquee>
+  </div>
+  <nav class="navbar-expand-lg navbar sticky-top">
     <div class="container-fluid">
-          <a class="navbar-brand" href="/"><img src="https://i.ibb.co/G0WZnG0/Spec-rec.png" style="width: 120px;" alt=""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand logo-container" href="/"><img src="../static/sdm.png" style="width: 120px;" alt=""></a>
+          <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -148,41 +196,55 @@
 
       {% endblock body %}
     </div>
-      <div class="footer">
-        <div class="upperfooter">
-          <div class="footerleft">
-            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="/">Home</a></li>
-            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="about">About</a></li>
-            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="products">Products</a></li>
-            <li style="list-style: none;"><a style="text-decoration: none;color: white;" href="contact">Contact us</a></li>
-          </div>
-          <div class="midfooter">
-            <a href="" style="margin-bottom: 10px;"><img width="30px" src="https://i.ibb.co/XCbgdBw/fb.png" alt=""></a>
-            <a href="" style="margin-bottom: 10px;"><img width="30px"  src="https://i.ibb.co/MCmWPLn/instagram.png" alt=""></a>
-            <a href="" style="margin-bottom: 10px;"><img width="30px"  src="https://i.ibb.co/wJF32BQ/twitter.png" alt=""></a>
-            <a href="" style="margin-bottom: 10px;"><img width="30px"  src="https://i.ibb.co/JnV7NqX/whatsapp.png" alt=""></a>
-          </div>
-          <div class="footerright">
-            <div class="frl"> 
-              <pre style="font-size: smaller;">
- Shyamnath Yadav
- +919820270855
- Balmukund Yadav
- +919821827627
- SP Engineering co.
- Gala No. 25/26,
- Jai matadi estate,
- near fatak road,
- Bhayander east,
- Thane-401105,
- Maharashtra,India.
- spindustries@yahoo.com
-                </pre>
-                </div>
-          </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Brand Partners</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Industries</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
         </div>
-        <div class="lowerfooter">&copy;2023 SP Engineering. All right reserved.</div>
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="#">Electrical Motors</a></li>
+            <li><a href="#">Gear Boxes</a></li>
+            <li><a href="#">Pumps</a></li>
+            <li><a href="#">Gear Pumps</a></li>
+            <li><a href="#">Coolant Pumps</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Return & Refund Policy</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section follow-us">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          
+        </div>
       </div>
+      <div class="footer-bottom">
+        <p>© 2025 SDM enterprises. | All Rights Reserved | Developed By <a href="https://devlooper.in/">Devlooper</a></p>
+      </div>
+    </footer>
+    
     <script>
       const currentDate = new Date().toISOString().slice(0, 10);
       document.getElementById("date").value=currentDate;

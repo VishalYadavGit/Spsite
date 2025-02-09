@@ -4,12 +4,12 @@
     <style>
         .mainbody{
             min-height: 100%;
-            background-color: #004aad;
+            background-color: #00a89e;
             
         }
         .frontbody{
             height: 50%;
-            background-color: #004aad;
+            background-color: #00a89e;
             width: 100%;
             min-height:auto;
             overflow: hidden;
@@ -31,7 +31,7 @@
         .middlebody{
             height: 50%;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: white;
+            color: black;
             padding: 30px;
             font-size: larger;
             line-height: 40px;
@@ -68,6 +68,49 @@
         .specialtxt{
             height: 60px;
         }
+        .category-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+        .category-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .about-section {
+            background-color: #E6F7FF;
+            background-image: url('https://via.placeholder.com/1920x1080');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 40px 0;
+        }
+        .about-section .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .about-section h2 {
+            font-weight: bold;
+        }
+        .about-section p {
+            color: #6c757d;
+        }
+        .about-section .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
     </style>
 {% endblock style %}
 {% block body %}
@@ -76,13 +119,13 @@
         <div id="carouselExampleInterval" style="display: block; z-index: 0;" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="2000">
-                <img src="https://picsum.photos/1200/500" class="d-block w-100" alt="...">
+                <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-2-LATEST-scaled.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <img src="https://picsum.photos/1200/500" class="d-block w-100" alt="...">
+                <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-6-scaled.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <img src="https://picsum.photos/1200/500" class="d-block w-100" alt="...">
+                <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-9-scaled.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -95,7 +138,84 @@
             </button>
           </div>       
     </div>
-    <img style="width: 100%;height: 80px;" src="https://i.ibb.co/3kkCy9M/border.png" alt="">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Our Categories</h2>
+        <p class="text-center text-muted">
+            Your one-stop shop for electric motors, gear pumps, coolant pumps, gearboxes, VFDs, and machine tools.
+        </p>
+        <div class="row g-4 justify-content-center">
+            <!-- Category 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card">
+                    <img src="https://picsum.photos/500/500" alt="Electric Motors">
+                    <h5 class="mt-3">Electric Motors</h5>
+                </div>
+            </div>
+            <!-- Category 2 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card">
+                    <img src="https://picsum.photos/500/500" alt="Gear Boxes">
+                    <h5 class="mt-3">Gear Boxes</h5>
+                </div>
+            </div>
+            <!-- Category 3 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card">
+                    <img src="https://picsum.photos/500/500" alt="Pumps">
+                    <h5 class="mt-3">Pumps</h5>
+                </div>
+            </div>
+            <!-- Category 4 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card">
+                    <img src="https://picsum.photos/500/500" alt="Gear Pumps">
+                    <h5 class="mt-3">Gear Pumps</h5>
+                </div>
+            </div>
+            <!-- Category 5 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card">
+                    <img src="https://picsum.photos/500/500" alt="Coolant Pumps">
+                    <h5 class="mt-3">Coolant Pumps</h5>
+                </div>
+            </div>
+            <!-- Category 6 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card">
+                    <img src="https://picsum.photos/500/500" alt="Machine Tools">
+                    <h5 class="mt-3">Machine Tools</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid about-section border">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Section -->
+                <div class="col-lg-6">
+                    <div class="content">
+                        <h2>About SDM Enterprises</h2>
+                        <p>
+                            Established in 1984, SDM enterprises is a trusted provider of high-quality industrial solutions, specializing in electric motors, gear pumps, coolant pumps, gearboxes, variable frequency drives (VFDs), and machine tools.
+                        </p>
+                        <p>
+                            Our products are known for their reliability, performance, and durability, catering to diverse industries and applications. With a commitment to customer satisfaction, we offer tailored solutions and technical support to meet specific requirements.
+                        </p>
+                        <p>
+                            At SDM enterprises, we strive to empower businesses with cutting-edge technology and superior products for enhanced productivity and efficiency.
+                        </p>
+                        <a href="#" class="btn btn-primary mt-3">Know More</a>
+                    </div>
+                </div>
+                <!-- Image Section -->
+                <div class="col-lg-6 text-center">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/400/450" alt="About Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="middlebody">
         <h3>Introduction</h3>
         <p>
@@ -146,5 +266,5 @@ At the core of our offerings lies the artistry of our expert engineers and techn
         </form>
         </div>
     </div>
-    <button class="fastconnect"  onclick="chatbox()" ><img src="https://i.ibb.co/P9QtDRw/fastconnect.png" alt="" width="50px"></button>
+    <button class="fastconnect"  onclick="chatbox()" ><img src="https://i.ibb.co/P9QtDRw/fastconnect.png" alt="" width="40px"></button>
 {% endblock body %}
