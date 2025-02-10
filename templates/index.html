@@ -8,7 +8,6 @@
             
         }
         .frontbody{
-            height: 50%;
             background-color: #00a89e;
             width: 100%;
             min-height:auto;
@@ -29,7 +28,6 @@
             z-index: 10;
         }
         .middlebody{
-            height: 50%;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: black;
             padding: 30px;
@@ -38,7 +36,8 @@
             text-align: center;
         }
         .chatbox{
-            width: 30%;
+            min-width:200px;
+            max-width: 400px;
             display: none;
             background-color: white;
             position: fixed;
@@ -49,12 +48,13 @@
             z-index: 10;
             border-radius: 15px;
             overflow: hidden;
+            border: 1px solid black;
 
         }
         .chatchild{
             height: 100%;
             width: 100%;
-            background-color: #4c74a8;
+            background-color: white;
             text-align: center;
             border-radius: 15px;
 
@@ -75,6 +75,7 @@
             text-align: center;
             padding: 20px;
             transition: transform 0.2s;
+            border: 1px solid rgb(206, 206, 206);
         }
         .category-card:hover {
             transform: scale(1.05);
@@ -83,9 +84,17 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            object-fit: cover;
+            height: 200px;
+        }
+        @media screen and (max-width: 768px) {
+            .category-card img {
+                height: 150px;
+            }
+            
         }
         .about-section {
-            background-color: #E6F7FF;
+            background-color: #014f86;
             background-image: url('https://via.placeholder.com/1920x1080');
             background-repeat: no-repeat;
             background-size: cover;
@@ -111,12 +120,31 @@
             border-radius: 8px;
             overflow: hidden;
         }
+        .carousel-indicators button {
+        width: 12px !important;
+        height: 12px !important;
+        border-radius: 50%;
+        gap: 2rem !important;
+        background-color: white;
+        }
+        .carousel-indicators .active {
+        background-color: white !important;
+        }
+
     </style>
 {% endblock style %}
 {% block body %}
 
     <div class="frontbody">
         <div id="carouselExampleInterval" style="display: block; z-index: 0;" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active me-3" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2" class="me-3"></button>
+              <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3" class="me-3"></button>
+            </div>
+          
+            <!-- Carousel Inner -->
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="2000">
                 <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-2-LATEST-scaled.jpg" class="d-block w-100" alt="...">
@@ -128,6 +156,8 @@
                 <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-9-scaled.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
+          
+            <!-- Controls -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -136,8 +166,15 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>       
+          </div>
+               
     </div>
+    <marquee direction="left" class="d-flex justify-between w-100 pt-3">
+        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+      </marquee>
     <div class="container py-5">
         <h2 class="text-center mb-4">Our Categories</h2>
         <p class="text-center text-muted">
@@ -147,42 +184,42 @@
             <!-- Category 1 -->
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="category-card">
-                    <img src="https://picsum.photos/500/500" alt="Electric Motors">
+                    <img src="https://4.imimg.com/data4/WA/HO/MY-17550548/three-phase-electric-motor.jpg" alt="Electric Motors">
                     <h5 class="mt-3">Motors</h5>
                 </div>
             </div>
             <!-- Category 2 -->
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="category-card">
-                    <img src="https://picsum.photos/500/500" alt="Gear Boxes">
+                    <img src="https://pinion.eu/wp-content/uploads/2021/10/1-Teilgetriebe-2.png" alt="Gear Boxes">
                     <h5 class="mt-3">Gear Boxes</h5>
                 </div>
             </div>
             <!-- Category 3 -->
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="category-card">
-                    <img src="https://picsum.photos/500/500" alt="Pumps">
+                    <img src="https://www.serfilco.com/wp-content/uploads/2021/08/20.png" alt="Pumps">
                     <h5 class="mt-3">Pumps</h5>
                 </div>
             </div>
             <!-- Category 4 -->
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="category-card">
-                    <img src="https://picsum.photos/500/500" alt="Gear Pumps">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4l-uJaTkFZcdFBlSXPNqnaoEetNzwYKD2Yg&s" alt="Gear Pumps">
                     <h5 class="mt-3">Gear Pumps</h5>
                 </div>
             </div>
             <!-- Category 5 -->
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="category-card">
-                    <img src="https://picsum.photos/500/500" alt="Coolant Pumps">
+                    <img src="https://5.imimg.com/data5/NO/TH/MY-2398714/coolant-pump-500x500.jpg" alt="Coolant Pumps">
                     <h5 class="mt-3">Coolant Pumps</h5>
                 </div>
             </div>
             <!-- Category 6 -->
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="category-card">
-                    <img src="https://picsum.photos/500/500" alt="Machine Tools">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRReqjaQ2C1ONd0pbJPpC237I6E4IC6_D3cGQ&s" alt="Machine Tools">
                     <h5 class="mt-3">Machine Tools</h5>
                 </div>
             </div>
@@ -193,7 +230,7 @@
             <div class="row align-items-center">
                 <!-- Text Section -->
                 <div class="col-lg-6">
-                    <div class="content">
+                    <div class="content border shadow">
                         <h2>About SDM Enterprises</h2>
                         <p>
                             Established in 1984, SDM enterprises is a trusted provider of high-quality industrial solutions, specializing in electric motors, gear pumps, coolant pumps, gearboxes, variable frequency drives (VFDs), and machine tools.
@@ -210,7 +247,7 @@
                 <!-- Image Section -->
                 <div class="col-lg-6 text-center">
                     <div class="about-image">
-                        <img src="https://picsum.photos/400/450" alt="About Image" class="img-fluid">
+                        <img src="https://picsum.photos/400/430" alt="About Image" class="img-fluid  border shadow" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -245,22 +282,22 @@ At the core of our offerings lies the artistry of our expert engineers and techn
             In conclusion, when you choose S. P. Engineering Co., you're selecting a company that blends expertise, quality, and commitment to provide you with exceptional products and services. We are your trusted partner in the world of manufacturing and engineering.<br></p>
     </div>
     <div class="chatbox" id="chatbox">
-        <div class="chatchild">
+        <div class="chatchild mt-2">
         <form class="form" action="/contact" method='post' >
             {% csrf_token %}
             <div class="all">
-            <h2 class="heading mr-2 ">Connect with us!</h2>
+            <h3 class="heading mr-2 ">Connect with us!</h3>
             
                 <label class="labels" for="name_surname">Enter Your Name<span style="color: red;">*</span></label><br>
-                <input class="inputss all" type="text" name='name'  required="required" placeholder="Your Name"><br>
+                <input class="inputss all rounded" type="text" name='name'  required="required" placeholder="Your Name"><br>
                 <label class="labels" for="email">Enter Your Email<span style="color: red;">*</span></label><br>
-                <input required="required" class="inputss all" type="email" name='email' placeholder="abc@email.com"><br>
+                <input required="required" class="inputss all rounded" type="email" name='email' placeholder="abc@email.com"><br>
                 <label class="labels" for="phone">Enter Your Phone number<span style="color: red;">*</span></label><br>
-                <input required="required" class="inputss all" type="text" name='phone' placeholder="Phone number"><br>
+                <input required="required" class="inputss all rounded" type="text" name='phone' placeholder="Phone number"><br>
                 <label class="labels" for="text">Enter Your Message<span style="color: red;">*</span></label><br>
-                <input required="required" class="specialtxt all" type="text" name='message' placeholder="Your message" style="margin-bottom: 2%;">
+                <input required="required" class="specialtxt all rounded" type="text" name='message' style="margin-bottom: 2%;">
             </div>
-            <button class="submitwala">Submit</button>
+            <button class="submitwala btn btn-primary">Submit</button>
             
             
         </form>
