@@ -4,23 +4,61 @@
     .about{
         text-align:center;
         padding:30px;
-        color:white;
+        color:#014F86;
+    }
+    .hero {
+        background: url('https://roboticsbiz.com/wp-content/uploads/2023/08/gears.jpg') center/cover no-repeat;
+        height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    }
+
+    .hero .content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .section-content {
+        background: white;
+        padding: 50px 20px;
     }
 </style>
 {% endblock style %}
 {% block body %}
 <div class="about">
-    <h3 style="margin-bottom: 30px;">About Us</h3>
+    <div class="hero">
+        <div class="content">
+            <h1 class="fw-bold">About SDM enterprises</h1>
+            <p class="fst-italic">
+                Established in 1984, SDM enterprises embarked on a mission to elevate manufacturing standards within the industry. 
+                Committed to delivering machinery and tools of the utmost quality, we introduced a range of precision equipment under the esteemed Paras brand.
+            </p>
+        </div>
+    </div>
 
-        <img style="width: 40%;margin-top: 20px;" src="https://i.ibb.co/vY9Z6Rs/Since.png" alt="https://i.ibb.co/vY9Z6Rs/Since.png">
-        <p style="font-size:110%;margin-bottom: 20px;margin: 0 20px;">Welcome to our company, a trusted name in the manufacturing industry since 1995. We take immense pride in our dedication to quality and innovation, providing a range of cutting-edge products designed to meet the diverse needs of our customers. With a focus on precision and performance, we specialize in crafting top-of-the-line chemical stirrers, paint mixers, and hydraulic presses. Over the past two decades, we have continually pushed the boundaries of engineering to develop state-of-the-art equipment that not only meets but exceeds industry standards. Our commitment to excellence, coupled with an unwavering passion for technological advancements, has made us a reliable partner for businesses across various sectors. Join us on our journey as we continue to set new benchmarks and shape the future of manufacturing.</p>
-        <img style="width: 100%;height: 80px;" src="https://i.ibb.co/3kkCy9M/border.png" alt="">
-        <img style="width: 40%;margin-top: 20px;" src="https://i.ibb.co/gDCG7qd/manufactured.png" alt="https://i.ibb.co/gDCG7qd/manufactured.png">
-        <p style="font-size:110%;margin-bottom: 20px;margin: 0 20px;">Throughout our rich history, we have successfully manufactured and delivered over 2000 high-quality machines to satisfied clients worldwide. This achievement stands as a testament to our unwavering commitment to craftsmanship, durability, and customer satisfaction. Each of these machines is a testament to our expertise and the trust that our customers have placed in us. As we look to the future, we remain dedicated to not only maintaining these standards but also to raising the bar even higher, ensuring that every machine we produce meets and exceeds your expectations. We're proud of our accomplishments, but we're even more excited about what we can achieve together in the years to come.</p>
-        <img style="width: 100%;height: 80px;" src="https://i.ibb.co/3kkCy9M/border.png" alt="">
-        <img style="width: 40%;margin-top: 20px;" src="https://i.ibb.co/DgxqZ6Y/countries.png" alt="">
-        <p style="font-size:110%;margin-bottom: 20px;margin: 0 20px;">Our commitment to excellence knows no boundaries. Over the years, we've expanded our reach far and wide, delivering our top-notch machines to more than 500 cities across the globe, spanning over 10 countries. This international footprint has allowed us to serve a diverse clientele and gain valuable insights into the unique requirements of different industries and regions. We take pride in our ability to adapt and tailor our products to meet the specific demands of our customers, no matter where they are located. As we continue to grow and evolve, our global presence remains a testament to our dedication to providing exceptional solutions that transcend borders and make a positive impact worldwide.</p>
-        <img style="width: 100%;height: 80px;" src="https://i.ibb.co/3kkCy9M/border.png" alt="">
-    
+    <!-- Content Section -->
+    <div class="section-content">
+        <div class="container text-center">
+            <h2 class="fw-bold">House of Electric Motors - Pumps - Gear Boxes - Drives and Machinery</h2>
+            <p>
+                Our initial product offerings included <strong>Lathe machines</strong>, <strong>radial drill machines</strong>, 
+                and <strong>bandsaw machines</strong>, which swiftly gained widespread recognition.
+            </p>
+        </div>
+    </div>
     </div>
 {% endblock body %}

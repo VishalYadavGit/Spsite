@@ -15,12 +15,20 @@
         }
         .navbar{
             background-color: #014F86;
-            color: #333333;
             box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
             z-index: 1;
         }
+        .navbar-nav .nav-link:active,
+        .navbar-nav .nav-link:focus {
+         color: #00A884 !important;
+          outline: none;
+            }
+
         .navli{
             margin: 0px 15px;
+        }
+        .navli a:hover{
+          color:#00A884;
         }
         .litext{
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -67,7 +75,13 @@
   justify-content: space-between;
   gap: 2rem;
 }
-
+.btn-primary {
+            background-color: #014f86 !important;
+            border: none;
+}
+.btn-primary:hover{
+    background-color: #00A884 !important;
+}
 .footer-section {
   flex: 1 1 200px;
 }
@@ -128,7 +142,7 @@
         .mainbody{
             min-height:85vh;
             background-color: #F5FAFF ;
-            background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');
+            background-image: url('https://www.transparenttextures.com/patterns/tiny-grid.png');
             background-attachment: fixed;
             
         }
@@ -152,13 +166,24 @@
 .social-icons a:hover {
   color: #007BFF; /* Icon color on hover */
 }
-
+.text-color{
+  color: #014f86;
+}
+@media screen and (max-width: 768px) {
+  .product-grid{
+  justify-content: center !important;
+  padding: 0 10px;
+}
+  .product-card{
+   max-width: 100% !important;
+  }
+}
     </style>
     
 </head>
 <body>
-  <div class="gstin m-0 py-2">
-    <a class="navbar-brand" href="/"><img src="https://i.ibb.co/rGFb6sgS/sdm.png" style="width: 120px;" alt=""></a>
+  <div class="gstin m-0 py-2 d-flex flex-column justify-content-center align-items-center">
+    <a class="navbar-brand" href="/"><img src="https://i.ibb.co/rGFb6sgS/sdm.png" style="width: 150px;" alt=""></a>
   </div>
   <nav class="navbar-expand-lg navbar sticky-top" id="navbar">
     <div class="container-fluid">
@@ -168,21 +193,21 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0" id="navbar-items">
-              <li class="nav-item navli">
+              <li class="nav-item navli text-white">
                 <a class="nav-link litext" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item  navli">
-                <a class="nav-link litext" href="about">About us</a>
+                <a class="nav-link litext" href="/about">About us</a>
               </li>
               <li class="nav-item dropdown navli">
-                <a class="nav-link litext" href="products">Products</a>
+                <a class="nav-link litext" href="/products">Products</a>
               </li>
               <li class="nav-item navli">
-                <a class="nav-link litext" href="contact">Contact Us</a>
+                <a class="nav-link litext" href="/contact">Contact Us</a>
               </li>
               {% if user.is_authenticated and user.is_staff %}
                 <li class="nav-item navli">
-                  <a class="nav-link litext" href="adminpanel">Admin Panel</a>
+                  <a class="nav-link litext" href="/adminpanel">Admin Panel</a>
                 </li>
               {% endif %}
             </ul>

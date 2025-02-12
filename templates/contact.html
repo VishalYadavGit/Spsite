@@ -3,9 +3,8 @@
 <style>
     .form{
         width: 100%;
-        text-align: center;
         padding-top: 20px;
-        color: white;
+        color:#004aad;
         line-height: 30px;
     }
     .labels{
@@ -29,7 +28,9 @@
     .submitwala{
         width: 20%;
         height: 50px;
-        color: blue;
+        color: white;
+        background-color: #004aad;
+        border-radius: 5px;
     }
     .conform{
         margin-bottom: 20px;
@@ -41,10 +42,10 @@
     }
 </style>{% endblock style %}
 {% block body %}
-<form class="form" action="/contact" method='post' >
+<form class="form container" action="/contact" method='post' >
     {% csrf_token %}
     <div class="all conform">
-    <h2 class="heading ">Connect with us!</h2>
+    <h2 class="heading ">Connect with us</h2>
     
         <label class="labels" for="name">Enter Your Name<span style="color: red;">*</span></label><br>
         <input class="inputss all" type="text" name='name'  required="required" placeholder="Your Name"><br>

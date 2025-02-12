@@ -14,6 +14,9 @@ class Machine(models.Model):
     machine_details=models.CharField(max_length=500)
     machine_img=models.ImageField()
 
+    def __str__(self):
+        return self.machine_name
+
 class Contact(models.Model):
     name=models.CharField(max_length=100)
     email=models.EmailField(max_length=254)

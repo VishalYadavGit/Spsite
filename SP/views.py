@@ -13,7 +13,11 @@ def not_found(request,exception):
 def index(request):
     ip = get_client_ip(request)
     print(ip)
-    return render(request,'index.html')
+    data = Machine_category.objects.all
+    context = {
+        'data': data
+    }
+    return render(request,'index.html',context)
 
 def get_client_ip(request):
     """Extract the real client IP, considering Ngrok"""
@@ -28,6 +32,21 @@ def products(request):
     categorys=Machine_category.objects.all
     context={"categorys":categorys}
     return render(request,'products.html',context)
+
+def category(request,id):
+    category=Machine_category.objects.get(id=id)
+    machines = Machine.objects.filter(category=category)
+    print(machines)
+    context={"category":machines}
+    return render(request,'category.html',context)
+
+def product(request,id):
+    machine=Machine.objects.get(id=id)
+    related_machines = Machine.objects.filter(category=machine.category).exclude(id=id)
+    print(related_machines)
+    context={"machine":machine,"related_machines":related_machines}
+    return render(request,'product.html',context)
+
 
 def about(request):
     return render(request,'about.html')

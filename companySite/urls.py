@@ -26,11 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('SP.urls')),
     path('products',views.products,name="views"),
+    path('product/<int:id>',views.product,name="views"),
     path('about',views.about,name="about"),
     path('contact',views.contact,name="contact"),
-    path('adminpanel',views.adminpanel,name="adminpanel"),
-    path('quotation',views.quotation,name="quotation"),
-    path('performa',views.performa,name="performa"),
+    path('category/<int:id>',views.category,name="products"),
 ]
 handler404=views.not_found
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

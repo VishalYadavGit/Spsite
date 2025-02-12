@@ -112,10 +112,6 @@
         .about-section p {
             color: #6c757d;
         }
-        .about-section .btn-primary {
-            background-color: #007bff;
-            border: none;
-        }
         .about-image {
             border-radius: 8px;
             overflow: hidden;
@@ -130,7 +126,35 @@
         .carousel-indicators .active {
         background-color: white !important;
         }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background: #f8f9fa;
+            padding: 10px 0;
+        }
 
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Adjust spacing between images */
+            animation: marquee 15s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-content img {
+            height: 30px; /* Adjust height */
+            width: auto;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 {% endblock style %}
 {% block body %}
@@ -169,60 +193,48 @@
           </div>
                
     </div>
-    <marquee direction="left" class="d-flex justify-between w-100 pt-3">
-        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
-        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
-        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
-        <img width="150" class="me-5" src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
-      </marquee>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <img src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+            <img src="https://global.abb/content/dam/abb-etc/commons/abb-logo.svg" alt="">
+            <img src="https://www.bharatbijlee.com/assets/images/bharatbijlee-logo.png" alt="">
+            <img src="https://1000logos.net/wp-content/uploads/2021/11/Siemens-logo.jpg" alt="">
+            <img src="https://rotomotive.com/wp-content/uploads/2022/06/cropped-logo.png" alt="">
+            <img src="https://www.premium-transmission.com/wp-content/uploads/2024/05/premium-transmission-1-1.webp" alt="">
+            <img src="https://www.elecon.com/views/templates/assets/images/elecon-logo.svg" alt="">
+            <img src="https://img.oemoffhighway.com/files/base/acbm/ooh/image/2024/07/Bonfiglioli_logo.66830542b91b5.png?auto=format%2Ccompress&fit=max&q=70&w=1200" alt="">
+            <img src="https://www.indosculp.com/assets/img/logo-light.png" alt="">
+            <img src="https://www.deltaww.com/images/logo.svg" alt="">
+            
+            <!-- Duplicate images to create a seamless effect -->
+            <img src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
+            <img src="https://global.abb/content/dam/abb-etc/commons/abb-logo.svg" alt="">
+            <img src="https://www.bharatbijlee.com/assets/images/bharatbijlee-logo.png" alt="">
+            <img src="https://1000logos.net/wp-content/uploads/2021/11/Siemens-logo.jpg" alt="">
+            <img src="https://rotomotive.com/wp-content/uploads/2022/06/cropped-logo.png" alt="">
+            <img src="https://www.premium-transmission.com/wp-content/uploads/2024/05/premium-transmission-1-1.webp" alt="">
+            <img src="https://www.elecon.com/views/templates/assets/images/elecon-logo.svg" alt="">
+            <img src="https://img.oemoffhighway.com/files/base/acbm/ooh/image/2024/07/Bonfiglioli_logo.66830542b91b5.png?auto=format%2Ccompress&fit=max&q=70&w=1200" alt="">
+            <img src="https://www.indosculp.com/assets/img/logo-light.png" alt="">
+            <img src="https://www.deltaww.com/images/logo.svg" alt="">
+        </div>
+    </div>
     <div class="container py-5">
         <h2 class="text-center mb-4">Our Categories</h2>
         <p class="text-center text-muted">
             Your one-stop shop for electric motors, gear pumps, coolant pumps, gearboxes, VFDs, and machine tools.
         </p>
         <div class="row g-4 justify-content-center">
-            <!-- Category 1 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="category-card">
-                    <img src="https://4.imimg.com/data4/WA/HO/MY-17550548/three-phase-electric-motor.jpg" alt="Electric Motors">
-                    <h5 class="mt-3">Motors</h5>
+             {% for category in data %}
+             <div class="col-6 col-md-4 col-lg-3">
+                 <a href="/category/{{ category.id }}" class="text-decoration-none text-dark">
+                     <div class="category-card">
+                         <img src="/media/{{category.Category_img}}" alt="Electric Motors">
+                         <h5 class="mt-3">{{ category.Category_name }}</h5>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <!-- Category 2 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="category-card">
-                    <img src="https://pinion.eu/wp-content/uploads/2021/10/1-Teilgetriebe-2.png" alt="Gear Boxes">
-                    <h5 class="mt-3">Gear Boxes</h5>
-                </div>
-            </div>
-            <!-- Category 3 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="category-card">
-                    <img src="https://www.serfilco.com/wp-content/uploads/2021/08/20.png" alt="Pumps">
-                    <h5 class="mt-3">Pumps</h5>
-                </div>
-            </div>
-            <!-- Category 4 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="category-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4l-uJaTkFZcdFBlSXPNqnaoEetNzwYKD2Yg&s" alt="Gear Pumps">
-                    <h5 class="mt-3">Gear Pumps</h5>
-                </div>
-            </div>
-            <!-- Category 5 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="category-card">
-                    <img src="https://5.imimg.com/data5/NO/TH/MY-2398714/coolant-pump-500x500.jpg" alt="Coolant Pumps">
-                    <h5 class="mt-3">Coolant Pumps</h5>
-                </div>
-            </div>
-            <!-- Category 6 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="category-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRReqjaQ2C1ONd0pbJPpC237I6E4IC6_D3cGQ&s" alt="Machine Tools">
-                    <h5 class="mt-3">Machine Tools</h5>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="container-fluid about-section border">
@@ -253,33 +265,33 @@
             </div>
         </div>
     </div>
-    <div class="middlebody">
-        <h3>Introduction</h3>
-        <p>
-            Nestled in the vibrant locale of Mira Bhayandar, Maharashtra, India, we proudly present <span style="color: red;">S. P. Engineering Co.</span> as a distinguished and renowned entity. With our multifaceted presence, we have firmly established ourselves as a distinguished Manufacturer, Supplier, Exporter, and Service Provider.<br> Our extensive product portfolio boasts a wide spectrum of offerings, including the Sigma Mixer Machine, High Speed Stirrer, High Precision Mills, Attritor Mill, Obd Pug Mixer, Batch Type Sand Mill, Bottle Filling Machine, Regular Sand Mill Model, Paint Machinery, Hydraulic Press Machinery, Chemicals Plant Equipment, and an array of other high-quality products.<br>
-
-At the core of our offerings lies the artistry of our expert engineers and technicians, who have meticulously crafted this product range by employing superior materials and components. Our commitment extends beyond just delivering exceptional products; we also take pride in offering professional repair and maintenance services, all accomplished within stipulated time frames.</p>
-    </div>
-    <img style="width: 100%;height: 80px;" src="https://i.ibb.co/3kkCy9M/border.png" alt="">
-    <div class="middlebody">
-        <h3>Why Choose Us?</h3>
-        <p>1. Unmatched Expertise: With a team of seasoned engineers and technicians, we bring unparalleled expertise to the table. Our professionals have honed their skills to perfection, ensuring the highest quality products and services.<br>
-
-            2. Quality Assurance: We prioritize the use of top-tier materials and components in every product we manufacture. Quality is not just a buzzword for us; it's an integral part of our commitment to you.<br>
-            
-            3. Wide Range of Products: Our extensive product catalog is a testament to our versatility. Whether you're in need of industrial mixers, precision mills, or machinery for chemical plants, we have you covered. Our diverse offerings make us a one-stop solution for various requirements.<br>
-            
-            4. Export Capabilities: As an exporter, we understand the importance of delivering products that meet international standards. We are well-versed in global regulations and standards, ensuring that our products are export-ready.<br>
-            
-            5. Prompt Repairs and Maintenance: Our dedication doesn't end with the sale. We offer comprehensive repair and maintenance services, executed by professionals, to keep your equipment running smoothly and efficiently.<br>
-            
-            6. Timely Delivery: We take pride in our commitment to punctuality. We understand the value of your time and ensure that our products and services are delivered within agreed-upon time frames.<br>
-            
-            7. Customer-Centric Approach: Your satisfaction is our utmost priority. We strive to understand your unique needs and tailor our solutions accordingly. Your success is our success.<br>
-            
-            8. Global Recognition: With our reputation for quality and reliability, we have earned recognition not only in our local market but also on the global stage. Choosing us means partnering with a company that has a proven track record.<br>
-            
-            In conclusion, when you choose S. P. Engineering Co., you're selecting a company that blends expertise, quality, and commitment to provide you with exceptional products and services. We are your trusted partner in the world of manufacturing and engineering.<br></p>
+    <div class="container py-5 my-3">
+        <div class="row g-4 text-center p-4 rounded-3 shadow border">
+            <div class="col-12 col-md-6 col-lg-4 border-end">
+                <h1 class="text-color fw-bold">37+</h1>
+                <p class="text-muted fs-4">Years of Experience</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 border-end">
+                <h1 class="text-color fw-bold">1,453+</h1>
+                <p class="text-muted fs-4">Happy Customers</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 border-end">
+                <h1 class="text-color fw-bold">96+</h1>
+                <p class="text-muted fs-4">Product Categories</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 border-end">
+                <h1 class="text-color fw-bold">19+</h1>
+                <p class="text-muted fs-4">Industries Served</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 border-end">
+                <h1 class="text-color fw-bold">9+</h1>
+                <p class="text-muted fs-4">Authorized Brands</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <h1 class="text-color fw-bold">5+</h1>
+                <p class="text-muted fs-4">Branches</p>
+            </div>
+        </div>
     </div>
     <div class="chatbox" id="chatbox">
         <div class="chatchild mt-2">
