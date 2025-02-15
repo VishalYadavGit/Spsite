@@ -172,7 +172,7 @@
             <div class="carousel-inner">
                 {% for image in images %}
                     <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="2000">
-                        <img src="{{ image }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
+                        <img src="/media/{{ image.carousel_img }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
                     </div>
                 {% endfor %}
             </div>
@@ -238,7 +238,7 @@
             <div class="row align-items-center">
                 <!-- Text Section -->
                 <div class="col-lg-6">
-                    <div class="content border shadow">
+                    <div class="content border">
                         <h2>About SDM Enterprises</h2>
                         <p>
                             Established in 1984, SDM enterprises is a trusted provider of high-quality industrial solutions, specializing in electric motors, gear pumps, coolant pumps, gearboxes, variable frequency drives (VFDs), and machine tools.

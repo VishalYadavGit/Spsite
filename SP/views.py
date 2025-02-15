@@ -16,8 +16,9 @@ def footerdata():
 
 def index(request):
     categorys = Machine_category.objects.all
+    images = Carousel.objects.all
     context = {
-        'categorys': categorys,
+        'categorys': categorys, 'images': images
     }
     return render(request,'index.html',context)
 
@@ -85,4 +86,11 @@ def contact(request):
 def get_quote(request,id):
     machine=Machine.objects.get(id=id)
     return redirect(f'/contact/?machine_id={machine.id}')
-    
+
+def terms(request):
+    categorys=Machine_category.objects.all
+    return render(request,'terms.html',{"categorys":categorys})
+
+def privacy(request):
+    categorys=Machine_category.objects.all
+    return render(request,'privacy.html',{"categorys":categorys})

@@ -30,6 +30,8 @@ urlpatterns = [
     path('about',views.about,name="about"),
     path('contact/',views.contact,name="contact"),
     path("contact", views.contact),
+    path('terms', views.terms, name="term"),
+    path('privacy',views.privacy, name="privacy"),
     path('category/<int:id>',views.category,name="products"),
     path('get_quote/<int:id>',views.get_quote,name="get_quote"),
 ]
