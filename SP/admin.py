@@ -4,3 +4,6 @@ from SP.models import *
 admin.site.register(Machine)
 admin.site.register(Machine_category)
 admin.site.register(Contact)
+admin.site.register(Brand)
+admin.site.register(faq)
+admin.site.register(Carousel)

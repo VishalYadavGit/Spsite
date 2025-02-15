@@ -28,8 +28,10 @@ urlpatterns = [
     path('products',views.products,name="views"),
     path('product/<int:id>',views.product,name="views"),
     path('about',views.about,name="about"),
-    path('contact',views.contact,name="contact"),
+    path('contact/',views.contact,name="contact"),
+    path("contact", views.contact),
     path('category/<int:id>',views.category,name="products"),
+    path('get_quote/<int:id>',views.get_quote,name="get_quote"),
 ]
 handler404=views.not_found
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

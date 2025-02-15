@@ -161,38 +161,34 @@
 
     <div class="frontbody">
         <div id="carouselExampleInterval" style="display: block; z-index: 0;" class="carousel slide" data-bs-ride="carousel">
-            <!-- Indicators -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active me-3" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2" class="me-3"></button>
-              <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3" class="me-3"></button>
+                {% for image in images %}
+                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="{{ forloop.counter0 }}" 
+                        class="{% if forloop.first %}active{% endif %} me-3" aria-label="Slide {{ forloop.counter }}">
+                    </button>
+                {% endfor %}
             </div>
-          
-            <!-- Carousel Inner -->
+        
             <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="2000">
-                <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-2-LATEST-scaled.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-6-scaled.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <img src="https://jainmachinetools.net/wp-content/uploads/2024/12/BANNER-9-scaled.jpg" class="d-block w-100" alt="...">
-              </div>
+                {% for image in images %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="2000">
+                        <img src="{{ image }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
+                    </div>
+                {% endfor %}
             </div>
-          
-            <!-- Controls -->
+        
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
-          </div>
-               
-    </div>
+        </div>
+        
+    </div
+    >
     <div class="marquee-container">
         <div class="marquee-content">
             <img src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" alt="">
@@ -220,17 +216,17 @@
         </div>
     </div>
     <div class="container py-5">
-        <h2 class="text-center mb-4">Our Categories</h2>
+        <h2 class="text-center mb-3">Our Categories</h2>
         <p class="text-center text-muted">
             Your one-stop shop for electric motors, gear pumps, coolant pumps, gearboxes, VFDs, and machine tools.
         </p>
         <div class="row g-4 justify-content-center">
-             {% for category in data %}
+             {% for category in categorys %}
              <div class="col-6 col-md-4 col-lg-3">
                  <a href="/category/{{ category.id }}" class="text-decoration-none text-dark">
                      <div class="category-card">
                          <img src="/media/{{category.Category_img}}" alt="Electric Motors">
-                         <h5 class="mt-3">{{ category.Category_name }}</h5>
+                         <h5 class="mt-3 text-muted">{{ category.Category_name }}</h5>
                         </div>
                     </a>
                 </div>
@@ -266,30 +262,34 @@
         </div>
     </div>
     <div class="container py-5 my-3">
+        <h2 class="text-center mb-3">Our Achievements</h2>
+        <p class="text-center text-muted mb-5">
+            What we have achieved so far is a testament to our commitment to quality and customer satisfaction.
+        </p>
         <div class="row g-4 text-center p-4 rounded-3 shadow border">
             <div class="col-12 col-md-6 col-lg-4 border-end">
                 <h1 class="text-color fw-bold">37+</h1>
-                <p class="text-muted fs-4">Years of Experience</p>
+                <p class="text-muted fw-bold">Years of Experience</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 border-end">
                 <h1 class="text-color fw-bold">1,453+</h1>
-                <p class="text-muted fs-4">Happy Customers</p>
+                <p class="text-muted fw-bold">Happy Customers</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 border-end">
                 <h1 class="text-color fw-bold">96+</h1>
-                <p class="text-muted fs-4">Product Categories</p>
+                <p class="text-muted fw-bold">Product Categories</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 border-end">
                 <h1 class="text-color fw-bold">19+</h1>
-                <p class="text-muted fs-4">Industries Served</p>
+                <p class="text-muted fw-bold">Industries Served</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 border-end">
                 <h1 class="text-color fw-bold">9+</h1>
-                <p class="text-muted fs-4">Authorized Brands</p>
+                <p class="text-muted fw-bold">Authorized Brands</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <h1 class="text-color fw-bold">5+</h1>
-                <p class="text-muted fs-4">Branches</p>
+                <p class="text-muted fw-bold">Branches</p>
             </div>
         </div>
     </div>

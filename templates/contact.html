@@ -16,49 +16,131 @@
     }
     .inputss{
         margin-bottom: 15px;
-        width: 60%;
-        padding: 5px;
+        width: 100%;
+        padding: 8px;
+        outline: none !important;
+        border: 0.5px solid grey !important;
+        border-radius: 5px;
     }
     .heading{
         margin-bottom: 20px;
     }
-    .specialtxt{
-        padding: 20px;
-    }
-    .submitwala{
-        width: 20%;
-        height: 50px;
-        color: white;
-        background-color: #004aad;
-        border-radius: 5px;
-    }
     .conform{
         margin-bottom: 20px;
     }
-    .submitwala:hover{
-        background-color:#004aad ;
+    .hero {
+        background: url('https://roboticsbiz.com/wp-content/uploads/2023/08/gears.jpg') center/cover no-repeat;
+        height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         color: white;
-        border: 1px solid white;
     }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    }
+
+    .hero .content {
+        position: relative;
+        z-index: 1;
+    }
+    .map{
+        width: 100%;
+        height: 100%;}
+        .accordion-button:focus {
+    box-shadow: none !important;
+    background-color: white;
+    outline: none !important;
+}
+.accordion-button:hover{
+    color: #004aad;
+}
+.accordion-button{
+    background-color: white !important;
+}
+.accordion-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
 </style>{% endblock style %}
 {% block body %}
-<form class="form container" action="/contact" method='post' >
-    {% csrf_token %}
-    <div class="all conform">
-    <h2 class="heading ">Connect with us</h2>
-    
-        <label class="labels" for="name">Enter Your Name<span style="color: red;">*</span></label><br>
-        <input class="inputss all" type="text" name='name'  required="required" placeholder="Your Name"><br>
-        <label class="labels" for="email">Enter Your Email<span style="color: red;">*</span></label><br>
-        <input required="required" class="inputss all" type="email" name='email' placeholder="abc@email.com"><br>
-        <label class="labels" for="phone">Enter Your Phone number<span style="color: red;">*</span></label><br>
-        <input required="required" class="inputss all" type="text" name='phone' placeholder="Phone number"><br>
-        <label class="labels" for="text">Enter Your Message<span style="color: red;">*</span></label><br>
-        <input required="required" class="specialtxt all inputss" type="text" name='message' placeholder="Your message" style="margin-bottom: 2%;">
+<div class="hero">
+    <div class="content">
+        <h1 class="fw-bold">Contact us</h1>
+        <p class="fst-italic px-4">
+            You'd love to hear from you! Send us your queries and feedback. We'll get back to you as soon as possible.
+        </p>
     </div>
-    <button class="submitwala" style="margin-bottom: 20px;">Send</button>
-    
-    
-</form>
+</div>
+<div class="container ">
 
+    <div class="row mx-auto mt-5">
+        <div class=" col-md-6">
+            <form class="form mb-4" action="/contact" method='post' >
+                {% csrf_token %}
+                <div class="all conform">
+                    <h2 class="heading ">Connect with us</h2>
+                    <select name="quote" class="inputss all" id="">
+                        <option value="enquiry">Just Enquiry</option>
+                        {% for machine in products %}
+                        <option value="{{ machine.machine_name }}" 
+                        {% if machine.id == request.GET.machine_id|add:0 %}selected{% endif %}>
+                        {{ machine.machine_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <input class="inputss all" type="text" name='name'  required="required" placeholder="Your Name"><br>
+                    <input required="required" class="inputss all" type="email" name='email' placeholder="abc@email.com"><br>
+                    <input required="required" class="inputss all" type="text" name='phone' placeholder="Phone number"><br>
+                    <textarea required="required" class="all inputss" name="message" placeholder="Your message" rows="4" style="margin-bottom: 2%; width: 100%; height: 100%; resize: none;"></textarea>
+                    
+                </div>
+                <button class="submitwala btn btn-primary w-100" style="margin-bottom: 20px;">Send</button>
+                
+                
+            </form>
+        </div>
+        <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.5668924801907!2d72.85802137505786!3d19.301191981950254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1e364980de5%3A0xf5782545c080a275!2sSDM%20Enterprises!5e0!3m2!1sen!2sin!4v1739441287120!5m2!1sen!2sin" style="border:0;" class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        {% if faq %}
+        <h2 class="text-center mb-4 mt-5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            {% for item in faq %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                        <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" 
+                                type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#collapse{{ forloop.counter }}" 
+                                aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" 
+                                aria-controls="collapse{{ forloop.counter }}">
+                            {{ item.question }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ forloop.counter }}" 
+                         class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" 
+                         aria-labelledby="heading{{ forloop.counter }}" 
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            {{ item.answer }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    </div>
+</div>
+    
 {% endblock body %}

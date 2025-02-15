@@ -17,7 +17,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
   }
   
@@ -57,50 +57,37 @@
     <div class="container py-5">
         <div class="row bg-white p-4 shadow rounded-3">
             <div class="col-md-6 text-center">
-                <img src="/media/motor.jpg" class="img-fluid" alt="Product Image">
+                <img src="/media/motor.jpg" style="max-width: 450px;" class="img-fluid" alt="Product Image">
             </div>
             <div class="col-md-6">
-                <h2 class="fw-bold">CG 0.5HP Max Gold Pump with Pipe size 15X15 MM</h2>
-                <p class="text-muted">BY - <strong>Crompton</strong></p>
+                <h2 class="fw-bold">{{ machine.machine_name }}</h2>
+                <p class="text-muted">BY - <strong>{{ machine.brand }}</strong></p>
                 <p class="text-muted">SKU: <strong>CGDSS05MG</strong></p>
-                <p>CG Pumps deliver reliable, energy-efficient solutions for industrial, agricultural, and commercial applications. Known for their robust performance and durability, CG pumps are designed to ensure smooth fluid handling, reduced energy consumption, and low maintenance, making them ideal for diverse pumping needs.</p>
+                <p>{{ machine.machine_descriptions }}</p>
                 <table class="table w-100">
+                  {% for key, value in machine.machine_details.items %}
                     <tr>
-                        <td class="text-muted">Price:</td>
-                        <td class=" fw-bold">₹ 5,500</td>
+                        <td class="text-muted">{{ key|capfirst }}:</td>
+                        <td class=" fw-bold">{{ value }}</td>
                     </tr>
-                    <tr>
-                        <td class="text-muted">RPM:</td>
-                        <td class="fw-bold">500</td>
-                    </tr>
-                    <tr>
-                        <td class="text-muted">RPM:</td>
-                        <td class="fw-bold">500</td>
-                    </tr>
-                    <tr>
-                        <td class="text-muted">RPM:</td>
-                        <td class="fw-bold">500</td>
-                    </tr>
-                    <tr>
-                        <td class="text-muted">RPM:</td>
-                        <td class="fw-bold">500</td>
-                    </tr>
+                  {% endfor %}
                 </table>
                 <div class="d-flex align-items-center mb-3">
-                    <button class="btn btn-primary">Get Quote</button>
+                    <a href="/get_quote/{{ machine.id }}" class="btn btn-primary">Get Quote</a>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <span>🚚 Free Shipping</span>
-                    <span>✅ 100% Original Product</span>
-                    <span>⏳ Quick Delivery Guaranteed</span>
+                <div class="d-flex justify-content-between align-items-center mt-5">
+                    <span class="d-flex justify-content-between align-items-center me-2"><i class="fa fa-truck fa-2x text-primary me-2"></i> Free Shipping</span>
+                    <span class="d-flex justify-content-between align-items-center me-2"><i class="fa fa-check-circle fa-2x me-2 text-primary"></i> 100% Original Product</span>
+                    <span class="d-flex justify-content-between align-items-center me-2"><i class="fa fa-hourglass fa-2x me-2 text-primary"></i> Quick Delivery Guaranteed</span>
                 </div>
             </div>
         </div>
+        <h3 class="mt-4">Recommendations</h3>
        <div class="productsbody">
         <div class="product-grid">
           {% if related_machines %}
           {% for machine in related_machines %}
-          <a href="/product/{{ machine.id }}" class="text-decoration-none">
+          <a href="/product/{{ machine.id }}" class="text-decoration-none justify-content-center">
             <div class="product-card shadow">
               <img class="imgdiv" src="/media/{{ machine.machine_img }}" alt="{{ machine.machine_name }}">
               <div class="detailsdiv">

@@ -69,7 +69,9 @@
         <div class="detailsdiv">
           <h3>{{ category.machine_name }}</h3>
         </div>
-        <button class="btn btn-primary">Get a Quote</button>
+        <button onclick="event.preventDefault(); window.location.href = '/get_quote/{{ category.id }}';"
+        class="btn btn-primary">Get a Quote</button>
+
       </div>
     </a>
       {% endfor %}

@@ -3,30 +3,23 @@ from django.contrib.auth.decorators import user_passes_test
 from .models import *
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
-def is_admin(user):
-    return user.is_authenticated and user.is_staff
-
+from django.shortcuts import redirect
 
 def not_found(request,exception):
     return render(request,'404.html')
 
+def footerdata():
+    data = {
+        'categorys': Machine_category.objects.all,
+    }
+    return data
+
 def index(request):
-    ip = get_client_ip(request)
-    print(ip)
-    data = Machine_category.objects.all
+    categorys = Machine_category.objects.all
     context = {
-        'data': data
+        'categorys': categorys,
     }
     return render(request,'index.html',context)
-
-def get_client_ip(request):
-    """Extract the real client IP, considering Ngrok"""
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]  # First IP in the list
-    else:
-        ip = request.META.get('REMOTE_ADDR')  # Fallback if no proxy
-    return ip
 
 def products(request):
     categorys=Machine_category.objects.all
@@ -35,25 +28,31 @@ def products(request):
 
 def category(request,id):
     category=Machine_category.objects.get(id=id)
+    categorys=Machine_category.objects.all
     machines = Machine.objects.filter(category=category)
     print(machines)
-    context={"category":machines}
+    context={"category":machines,"categorys":categorys}
     return render(request,'category.html',context)
 
 def product(request,id):
     machine=Machine.objects.get(id=id)
     related_machines = Machine.objects.filter(category=machine.category).exclude(id=id)
+    categorys=Machine_category.objects.all
     print(related_machines)
-    context={"machine":machine,"related_machines":related_machines}
+    context={"machine":machine,"related_machines":related_machines,"categorys":categorys}
     return render(request,'product.html',context)
 
 
 def about(request):
-    return render(request,'about.html')
+    categorys=Machine_category.objects.all
+    return render(request,'about.html',{"categorys":categorys})
 
 def contact(request):
     if(request.method=='POST'):
         name=request.POST.get('name')
+        option=request.POST.get('quote')
+        if not option:
+            option="General Enquiry"
         phone=request.POST.get('phone')
         email=request.POST.get('email')
         message=request.POST.get('message')
@@ -61,7 +60,8 @@ def contact(request):
             name=name,
             phone=phone,
             email=email,
-            message=message
+            message=message,
+            enquiry=option
         )
         mail=f'''
         {name} 
@@ -71,22 +71,18 @@ def contact(request):
         {phone} 
         sent 
         "{message}"
+        enquiry type is {option}
         '''
         send_mail(name,mail,'',['vystudent68@gmail.com'])
         return HttpResponseRedirect(request.path_info)
 
-    return render(request,'contact.html')
-
-@user_passes_test(is_admin)
-def adminpanel(request):
-    return render(request,'admin.html')
-
-@user_passes_test(is_admin)
-def quotation(request):
+    qna = faq.objects.all
+    products = Machine.objects.all
     categorys=Machine_category.objects.all
-    context={"categorys":categorys}
-    return render(request,'quotation.html',context)
+    context={"faq":qna,"products":products,"categorys":categorys}
+    return render(request,'contact.html',context)
 
-@user_passes_test(is_admin)
-def performa(request):
-    return render(request,'performa.html')
+def get_quote(request,id):
+    machine=Machine.objects.get(id=id)
+    return redirect(f'/contact/?machine_id={machine.id}')
+    
