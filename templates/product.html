@@ -56,8 +56,9 @@
 {% block body %}
     <div class="container py-5">
         <div class="row bg-white p-4 shadow rounded-3">
-            <div class="col-md-6 text-center">
-                <img src="/media/motor.jpg" style="max-width: 450px;" class="img-fluid" alt="Product Image">
+            <div class="col-md-6 text-center position-relative">
+              <img src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" style="height:30px;left:10px;" class="position-absolute" alt="">
+                <img src="/media/motor.jpg" style="max-width: 450px;" class="img-fluid w-100" alt="Product Image">
             </div>
             <div class="col-md-6">
                 <h2 class="fw-bold">{{ machine.machine_name }}</h2>
@@ -75,10 +76,10 @@
                 <div class="d-flex align-items-center mb-3">
                     <a href="/get_quote/{{ machine.id }}" class="btn btn-primary">Get Quote</a>
                 </div>
-                <div class="d-flex justify-content-between align-items-center mt-5">
-                    <span class="d-flex justify-content-between align-items-center me-2"><i class="fa fa-truck fa-2x text-primary me-2"></i> Free Shipping</span>
-                    <span class="d-flex justify-content-between align-items-center me-2"><i class="fa fa-check-circle fa-2x me-2 text-primary"></i> 100% Original Product</span>
-                    <span class="d-flex justify-content-between align-items-center me-2"><i class="fa fa-hourglass fa-2x me-2 text-primary"></i> Quick Delivery Guaranteed</span>
+                <div class="row justify-content-between align-items-center mt-5">
+                    <span class="col-12 align-items-center my-2 me-2"><i class="fa fa-truck fa-2x text-primary me-2"></i> Free Shipping</span>
+                    <span class="col-12 align-items-center my-2 me-2"><i class="fa fa-check-circle fa-2x me-2 text-primary"></i> 100% Original Product</span>
+                    <span class="col-12 align-items-center my-2 me-2"><i class="fa fa-hourglass fa-2x me-2 text-primary h-100"></i> Quick Delivery Guaranteed</span>
                 </div>
             </div>
         </div>
@@ -87,8 +88,9 @@
         <div class="product-grid">
           {% if related_machines %}
           {% for machine in related_machines %}
-          <a href="/product/{{ machine.id }}" class="text-decoration-none justify-content-center">
+          <a href="/product/{{ machine.id }}" class="text-decoration-none justify-content-center position-relative">
             <div class="product-card shadow">
+              <img src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" style="height:20px;left:10px;" class="position-absolute" alt="">
               <img class="imgdiv" src="/media/{{ machine.machine_img }}" alt="{{ machine.machine_name }}">
               <div class="detailsdiv">
               <h3>{{ machine.machine_name }}</h3>

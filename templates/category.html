@@ -63,8 +63,9 @@
     <div class="product-grid">
     {% if category %}
       {% for category in category %}
-      <a href="/product/{{ category.id }}" class="text-decoration-none">
+      <a href="/product/{{ category.id }}" class="text-decoration-none position-relative">
         <div class="product-card">
+          <img src="https://ulcm.s3.amazonaws.com/hindmotors.com/images/LogoImage_133185947934513480.png" style="height:20px;left:10px;" class="position-absolute" alt="">
           <img class="imgdiv" src="/media/{{ category.machine_img }}" alt="{{category.Category_name}}">
         <div class="detailsdiv">
           <h3>{{ category.machine_name }}</h3>
