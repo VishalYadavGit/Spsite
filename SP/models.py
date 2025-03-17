@@ -5,6 +5,7 @@ from django.db import models
 class Machine_category(models.Model):
     Category_name=models.CharField(max_length=100)
     Category_img=models.ImageField(default=None)
+    filter=models.JSONField(default=list)
 
     def __str__(self):
         return self.Category_name

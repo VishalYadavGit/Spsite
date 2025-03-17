@@ -5,6 +5,11 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 
+Motor_filter = ['Brands','HP','RPM','Mount']
+Gearbox_filter = ['Brands','Type','Ratio']
+Pump_filter = ['Brands','HP','Discharge Range','Head Range','Pipe Size']
+Vfd_filter = ['Brands','HP','Phase','Series']
+
 def not_found(request,exception):
     return render(request,'404.html')
 
@@ -31,7 +36,7 @@ def category(request,id):
     category=Machine_category.objects.get(id=id)
     categorys=Machine_category.objects.all
     machines = Machine.objects.filter(category=category)
-    print(machines)
+    
     context={"category":machines,"categorys":categorys}
     return render(request,'category.html',context)
 
